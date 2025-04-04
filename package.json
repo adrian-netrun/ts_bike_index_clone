@@ -27,7 +27,7 @@
       "reflect-metadata": "^0.2.2",
       "ts-loader": "^9.5.2",
       "ts-node": "10.9.1",
-      "typescript": "^5.8.2",
+      "typescript": "5.8.2",
       "webpack-cli": "^6.0.1",
       "webpack-dev-server": "^5.2.1"
    },
@@ -49,9 +49,10 @@
    },
    "scripts": {
       "dev:server": "npm run lint && npm run format && npm run lint:fix && nodemon server/index.ts",
-      "dev:client": "webpack serve --open",
-      "build": "webpack",
-      "start": "ts-node src/index.ts",
+      "dev:client": "webpack serve --mode development --config webpack.config.js",
+      "build:server": "tsc",
+      "build:client": "webpack --mode production --config webpack.config.js",
+      "start": "node ./dist/server/index.js",
       "lint": "eslint 'server/**/*.ts' 'client/**/*.tsx'",
       "lint:fix": "eslint 'server/**/*.ts' 'client/**/*.tsx' --fix",
       "format": "prettier --write 'server/**/*.ts' 'client/**/*.tsx'",

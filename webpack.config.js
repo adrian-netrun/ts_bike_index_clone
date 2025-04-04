@@ -1,43 +1,50 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./client/index.tsx",
+  entry: './client/index.tsx',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist/client'),
     clean: true,
   },
-  mode: "development",
+  mode: 'development', // change to 'production' for production build
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@client': path.resolve(__dirname, 'client'),
+    },
+  },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
+        use: 'babel-loader',
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.css$/, // if using CSS
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
       },
     ],
   },
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
-  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./client/index.html",
+      template: './client/index.html',
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"),
+      directory: path.join(__dirname, 'dist/client'),
     },
     compress: true,
     port: 3000,
+    open: true,
     historyApiFallback: true,
   },
+  devtool: 'source-map',
 };

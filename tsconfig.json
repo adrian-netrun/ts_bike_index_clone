@@ -1,14 +1,27 @@
 {
    "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "outDir": "./build",
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "sourceMap": true,
-      "esModuleInterop": true,
-      "jsx": "react-jsx"
+     "target": "ES6",                  
+     "module": "CommonJS",              
+     "strict": true,                    
+     "esModuleInterop": true,           
+     "skipLibCheck": true,              
+     "forceConsistentCasingInFileNames": true,
+     "outDir": "./dist",                
+     "rootDir": "./",                   
+     "moduleResolution": "node",        
+     "resolveJsonModule": true,         
+     "baseUrl": ".",  
+     "jsx": "react-jsx",
+     "experimentalDecorators": true,
+     "strictPropertyInitialization": false, 
+     "emitDecoratorMetadata": true,           
+     "paths": {                         
+       "@server/*": ["server/*"],       
+       "@client/*": ["client/*"],
+       "@database/*": ["datanase/*"]
+     }
    },
-   "include": ["server", "client", "database"]
-}
+   "include": ["server", "client"],     
+   "exclude": ["node_modules", "dist"]  
+ }
+ 

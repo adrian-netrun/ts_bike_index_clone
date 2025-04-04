@@ -1,19 +1,29 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import 'reflect-metadata';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { IsEmail, IsString } from 'class-validator';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  userId: number;
 
   @Column()
-  firstName: string;
+  @IsEmail()
+  username: String;
 
   @Column()
-  lastName: string;
+  @IsString()
+  hashedPassword: String;
 
-  @Column()
-  age: number;
-
-  @Column()
+  @CreateDateColumn()
   createDate: Date;
+
+  @UpdateDateColumn()
+  updatedDate: Date;
 }
