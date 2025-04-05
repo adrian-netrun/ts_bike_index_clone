@@ -1,6 +1,10 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { User } from './entity/User';
+import { UserProfile } from './entity/UserProfile';
+import { ProfilePicture } from './entity/ProfilePicture';
+import { Post } from './entity/Post';
+import { PostImage } from './entity/PostImages';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -14,7 +18,7 @@ export const AppDataSource = new DataSource({
   database: process.env.db_name,
   synchronize: false,
   logging: false,
-  entities: [User],
+  entities: [User, UserProfile, ProfilePicture, Post, PostImage],
   migrations: [],
   subscribers: [],
 });
