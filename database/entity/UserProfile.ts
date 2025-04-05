@@ -12,6 +12,7 @@ import {
 import { User } from './User';
 import { Post } from './Post';
 import { PostImage } from './PostImages';
+import { Comment } from './Comments';
 // import class validators later
 
 @Entity()
@@ -35,9 +36,12 @@ export class UserProfile {
   @JoinColumn()
   userId: User;
 
-  @OneToMany(() => Post, (post) => post.userProfileId)
+  @OneToMany(() => Post, (posts) => posts.userProfileId)
   posts: Post[];
 
   @OneToMany(() => PostImage, (postimage) => postimage.userProfileId)
   images: PostImage[];
+
+  @OneToMany(() => Comment, (comments) => comments.userProfileId)
+  comments: Comment[];
 }

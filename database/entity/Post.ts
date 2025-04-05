@@ -11,6 +11,7 @@ import {
 import { IsString } from 'class-validator';
 import { UserProfile } from './UserProfile';
 
+@Entity()
 export class Post {
   @PrimaryGeneratedColumn()
   uid: number;
