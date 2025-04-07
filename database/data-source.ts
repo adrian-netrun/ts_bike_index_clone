@@ -17,7 +17,7 @@ export const AppDataSource = new DataSource({
   username: process.env.db_username,
   password: process.env.db_password,
   database: process.env.db_name,
-  synchronize: true,
+  synchronize: false,
   logging: false,
   entities: [User, UserProfile, ProfilePicture, Post, PostImage, Comment],
   migrations: [],
