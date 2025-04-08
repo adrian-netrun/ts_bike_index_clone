@@ -6,7 +6,6 @@ import {
   UpdateDateColumn,
   ManyToOne,
 } from 'typeorm';
-import { IsString } from 'class-validator';
 import { UserProfile } from './UserProfile';
 
 @Entity()
@@ -15,7 +14,6 @@ export class Comment {
   uid: number;
 
   @Column()
-  @IsString()
   text: String;
 
   @CreateDateColumn()

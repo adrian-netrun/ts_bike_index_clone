@@ -8,7 +8,6 @@ import {
   UpdateDateColumn,
   ManyToOne,
 } from 'typeorm';
-import { IsString } from 'class-validator';
 import { UserProfile } from './UserProfile';
 
 @Entity()
@@ -23,7 +22,6 @@ export class Post {
   model: String;
 
   @Column()
-  @IsString()
   serial: String;
 
   @CreateDateColumn()

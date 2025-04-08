@@ -6,7 +6,6 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { IsEmail, IsString } from 'class-validator';
 
 @Entity()
 export class User {
@@ -14,11 +13,9 @@ export class User {
   userId: number;
 
   @Column()
-  @IsEmail()
   username: String;
 
   @Column()
-  @IsString()
   hashedPassword: String;
 
   @CreateDateColumn()
