@@ -20,7 +20,7 @@ export class UserProfile {
   @PrimaryGeneratedColumn()
   uid: number;
 
-  @Column()
+  @Column({ unique: true })
   displayname: string;
 
   @Column()

@@ -5,6 +5,7 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  Unique,
 } from 'typeorm';
 
 @Entity()
@@ -12,7 +13,7 @@ export class User {
   @PrimaryGeneratedColumn()
   userId: number;
 
-  @Column()
+  @Column({ unique: true })
   username: String;
 
   @Column()

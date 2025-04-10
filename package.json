@@ -36,8 +36,10 @@
    "description": "",
    "main": "index.js",
    "dependencies": {
+      "@types/bcrypt": "^5.0.2",
       "axios": "^1.8.4",
       "babel-loader": "^10.0.0",
+      "bcrypt": "^5.1.1",
       "cors": "^2.8.5",
       "dotenv": "^16.4.7",
       "express": "^5.1.0",
